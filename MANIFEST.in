@@ -1,0 +1,3 @@
+include gvcode/resource/fonts/*.ttc
+include gvcode/resource/fonts/*.ttf
+include gvcode/resource/images/*.png
