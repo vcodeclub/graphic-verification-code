@@ -71,7 +71,7 @@ class GraphicVerificationCode(object):
         def create_chars():
             """ 绘制验证码字符 """
             chars = generate_chars()
-            strs = ' {} '.format(' '.join(chars))  # 每个字符前后以空格隔开
+            strs = ' {0} '.format(' '.join(chars))  # 每个字符前后以空格隔开
 
             font = ImageFont.truetype(font_file if os.path.exists(font_file or '') else self.FONT_FILE, font_size)
             font_width, font_height = font.getsize(strs)
