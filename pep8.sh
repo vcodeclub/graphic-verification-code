@@ -8,4 +8,4 @@
 #  -- E501 line too long
 #  -- E701  multiple statements on one line
 
-pep8 --exclude=migrations --ignore=E128,E401,E501,E701 .
+pycodestyle --exclude=migrations --ignore=E128,E401,E501,E701 .
