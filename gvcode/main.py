@@ -3,9 +3,8 @@
 import base64 as b64
 import os
 import random
-from cStringIO import StringIO
 
-from .compat import range
+from .compat import BytesIO, range
 
 
 try:
@@ -97,7 +96,7 @@ class GraphicVerificationCode(object):
 
     def base64(self, format='PNG'):
         im, vcode = self.generate()
-        out = StringIO()
+        out = BytesIO()
         im.save(out, format=format)
         return b64.b64encode(out.getvalue()), vcode
 

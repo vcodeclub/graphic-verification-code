@@ -33,6 +33,12 @@ if is_py2:
     basestring = basestring
     numeric_types = (int, long, float)
 
+    try:
+        from cStringIO import StringIO
+    except ImportError:
+        from StringIO import StringIO
+    BytesIO = StringIO
+
 elif is_py3:
     range = range
 
@@ -41,3 +47,5 @@ elif is_py3:
     bytes = bytes
     basestring = (str, bytes)
     numeric_types = (int, float)
+
+    from io import BytesIO
