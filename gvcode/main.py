@@ -4,7 +4,7 @@ import base64 as b64
 import os
 import random
 
-from .compat import BytesIO, range
+from .compat import BytesIO, is_py2, range
 
 
 try:
@@ -98,7 +98,8 @@ class GraphicVerificationCode(object):
         im, vcode = self.generate()
         out = BytesIO()
         im.save(out, format=format)
-        return b64.b64encode(out.getvalue()), vcode
+        b64str = b64.b64encode(out.getvalue())
+        return b64str if is_py2 else str(b64str, encoding='utf8'), vcode
 
 
 _global_instance = GraphicVerificationCode()
