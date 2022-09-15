@@ -73,7 +73,7 @@ class GraphicVerificationCode(object):
             strs = ' {0} '.format(' '.join(chars))  # 每个字符前后以空格隔开
 
             font = ImageFont.truetype(font_file if os.path.exists(font_file or '') else self.FONT_FILE, font_size)
-            font_width, font_height = font.getsize(strs)
+            _, _, font_width, font_height = font.getbbox(strs)
             xy = ((width - font_width) / 3, (height - font_height) / 3)
             draw.text(xy, strs, font=font, fill=fg_color)
             return ''.join(chars)
