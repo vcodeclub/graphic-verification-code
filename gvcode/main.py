@@ -89,7 +89,7 @@ class GraphicVerificationCode(object):
         # 图形扭曲参数
         params = [1 - float(random.randint(1, 2)) / 100, 0, 0, 0, 1 - float(random.randint(1, 10)) / 100,
                   float(random.randint(1, 2)) / 500, 0.001, float(random.randint(1, 2)) / 500]
-        im = im.transform(size, Image.PERSPECTIVE, params)  # 创建扭曲
+        im = im.transform(size, Image.Transform.PERSPECTIVE, params)  # 创建扭曲
         im = im.filter(ImageFilter.EDGE_ENHANCE_MORE)  # 滤镜，边界加强（阈值更大）
 
         return im, vcode
