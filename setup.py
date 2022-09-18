@@ -20,7 +20,7 @@ setup(
 
     packages=['gvcode'],
     py_modules=[],
-    install_requires=['Pillow'],
+    install_requires=['Pillow>=9.2.0'],
     package_data={
         '': ['*.ttc', '*.ttf'],
         'resource/images': ['*.png']
