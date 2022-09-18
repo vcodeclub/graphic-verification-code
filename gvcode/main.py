@@ -90,8 +90,14 @@ class GraphicVerificationCode(object):
 
             font = ImageFont.truetype(font_file if os.path.exists(font_file or '') else self.FONT_FILE, font_size)
             _, _, font_width, font_height = font.getbbox(strs)
-            xy = ((width - font_width) / 3, (height - font_height) / 3)
-            draw.text(xy, strs, font=font, fill=generate_fg_color())
+            # xy = ((width - font_width) / 3, (height - font_height) / 3)
+            # draw.text(xy, strs, font=font, fill=generate_fg_color())
+            x, y = (width - font_width) / 3, (height - font_height) / 3
+            for c in chars:
+                drawc = ' {}'.format(c)
+                draw.text((x, y), drawc, font=font, fill=generate_fg_color())
+                _, _, drawc_font_width, _ = font.getbbox(drawc)
+                x += drawc_font_width
             return ''.join(chars)
 
         if draw_lines:
